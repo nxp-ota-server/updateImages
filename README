@@ -1,0 +1,40 @@
+This is a server which is to save board images for OTA. 
+Following files must be included:
+.
+|-- update.json
+|-- 0.0.0
+|-- 0.1.0
+|-- 0.2.0
+\-- 0.3.0
+   |-- ls1021aiot
+   |  |-- u-boot.bin
+   |  |-- uImage
+   |  |-- rootfs.ext4
+   |  \-- firmware_sdcard.bin
+   |  
+   |-- ls1012ardb-64b
+   |-- ls1012ardb-32b
+   |-- ls1043ardb-64b
+   |-- ls1043ardb-32b
+   |-- ls1046ardb-64b
+   \-- ls1046ardb-32b
+
+update.json is a json file that can send information to device boards. The file is written like this:
+	{
+		 /* set yes or no to tell devices is it need to update. */
+		"updateStatus":"yes",
+
+		/* which part to update, you can write "all", "u-boot", 
+		   "filesystem"	*/
+		"updatePart":"filesystem",
+
+		/* version of update firmware */
+		"updateVersion":"0.3.0",
+	}
+
+Images for OTA were stored in path: <updateVersion>/<boardname>/
+	u-boot.bin  /* this is u-boot image for update. In ls1012ardb folder,this image include RCW and u-boot */
+	uImage		/* this is kernel image for update */
+	rootfs.ext4 /* this is filesystem image for update */
+	firmware_sdcard.bin /* this is a full firmware of SD card image */
+	kernel-ls1043a-rdb.itb /* this is an itb file and only ls1043ardb and ls1046ardb will use it. */
