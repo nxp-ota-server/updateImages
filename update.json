@@ -1,5 +1,5 @@
 {
 	 "updateStatus":"yes",
-	 "updatePart":"u-boot",
-	 "updateVersion":"0.3.0",
+	 "updatePart":"all",
+	 "updateVersion":"1.0.0",
 }
